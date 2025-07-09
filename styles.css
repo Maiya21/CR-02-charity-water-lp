@@ -41,39 +41,94 @@ section {
   padding: 24px 16px;
 }
 
+/* Header styles: space between logo and navigation/donate */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Wrapper for nav and donate button to align them horizontally */
+.nav-donate-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation links */
+header nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
+  height: 65vh; /* Keep the hero section a bit taller */
+  min-height: 350px; /* Slightly taller minimum for small screens */
+  /* Make the background image even wider using background-size: 140% */
+  background: url('img/4832_Ethiopia_2019_CG- (1).jpg');
+  background-size:cover;
   color: #fff;                 /* White text for contrast */
   text-align: center;          /* Center the text */
   padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
+  /* Remove the white/blue border radius and shadow */
+  border-radius: 0;
+  box-shadow: none;
+  /* No overlay or blend mode */
+  display: flex;              /* Use flex to center content */
+  align-items: center;        /* Vertically center content */
+  justify-content: center;    /* Horizontally center content */
+  flex-direction: row;        /* Make sure content is in a row */
+  justify-content: flex-start; /* Align content to the left */
 }
 
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
+/* Main hero heading: big, bold, Arial font */
+.hero-main-heading {
+  font-family: Arial, sans-serif;
+  font-size: 2.6em;
   font-weight: bold;
+  margin: 0 0 8px 0;
   letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Subheading: slightly smaller, still bold */
+.hero-sub-heading {
+  font-family: Arial, sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 0 18px 0;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 /* Style the subheadline */
 .hero p {
-  font-size: 1.2em;
+  font-size: 1em;     /* Smaller paragraph */
   margin-top: 0;
+  margin-bottom: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  line-height: 1.6;
+}
+
+/* Text container in the hero section */
+.hero-text {
+  text-align: left;
+  max-width: 340px;   /* Make the text container narrower */
+  margin-left: 40px;  /* Less space from the left */
+  margin-top: 20px;   /* Less space from the top */
+}
+
+/* Move the donate button in the hero section a little down and to the right */
+.hero-text .donate-button {
+  margin-top: 30px;   /* Move down */
+  margin-left: 40px;  /* Move to the right */
+  display: inline-block;
 }
 
 /* Story Section Styles */
@@ -86,10 +141,13 @@ section {
 
 /* Add accent color to section headings */
 h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
+  
+
 }
+
+/* Change the color of the Make a Difference heading */
+
+
 
 /* Call-to-Action Section Styles */
 .call-to-action {
@@ -111,24 +169,58 @@ h2 {
 /* Donate Button Styles */
 .donate-button {
   display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
+  background-color: #FFC907; /* Bright yellow */
+  color: #000;
+  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 6px;
   font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
+  border-radius: 4px;
+  margin-left: 20px; /* Space between nav and button */
   border: none;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 /* Change button color when hovered */
 .donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+  background-color: #e6b800;
+}
+
+/* Style for the Learn Now button under Give Now */
+.learn-now-button {
+  display: inline-block;
+  background-color: #fffdf5; /* Light cream color */
+  color: #0077b6;            /* Blue text for contrast */
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-left: 40px;   /* Align with Give Now button */
+  margin-top: 16px;    /* Space below Give Now button */
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+/* Change background slightly on hover for Learn Now */
+.learn-now-button:hover {
+  background-color: #f4f8fb;
+}
+
+/* Style for the Learn Now link under Give Now */
+.learn-now-link a {
+  color: #fffdf5;           /* Light cream color */
+  text-decoration: none;    /* No underline */
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-left: 40px;        /* Align with Give Now button */
+  margin-top: 12px;
+  display: inline-block;
+}
+
+/* Add a little hover effect for clarity */
+.learn-now-link a:hover {
+  text-decoration: underline;
 }
 
 /* Add some spacing between sections */
